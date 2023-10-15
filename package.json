@@ -1,0 +1,25 @@
+{
+  "name": "lambda-js-prerender",
+  "version": "0.0.1",
+  "description": "AWS CloudFront Lambda serverless JavaScript prerenderer.",
+  "main": "src/app.js",
+  "dependencies": {
+    "puppeteer": "^21.3.8"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "chai-match": "^1.1.1",
+    "eslint": "latest",
+    "lambda-tester": "latest",
+    "mocha": "^9.2.2",
+    "swagger-jsdoc": "latest"
+  },
+  "scripts": {
+    "genapi": "swagger-jsdoc -d src/openapi.js -o src/swagger.json src/app.js",
+    "lint": "eslint src test",
+    "test": "mocha --require test/mocha.env.js 'test/**/*.js'"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

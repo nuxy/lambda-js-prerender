@@ -1,0 +1,24 @@
+{
+  "name": "lambda-js-prerender",
+  "context": "..",
+  "dockerFile": "../Dockerfile",
+  "forwardPorts": [3000],
+  // Mounting AWS config (Requires container rebuild)
+  //"mounts": ["source=${localEnv:HOME}/.aws,target=/root/.aws,type=bind,consistency=cached"],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Arjun.swagger-viewer",
+        "berublan.vscode-log-viewer",
+        "christian-kohler.path-intellisense",
+        "DavidAnson.vscode-markdownlint",
+        "dbaeumer.vscode-eslint",
+        "donjayamanne.githistory",
+        "liamhammett.inline-parameters",
+        "ms-vscode-remote.remote-containers",
+        "redhat.vscode-yaml",
+        "steoates.autoimport"
+      ]
+    }
+  }
+}
