@@ -41,8 +41,8 @@ exports.handler = async (event) => {
 
     if (url) {
       const browser = await puppeteer.launch({
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
-        executablePath: 'google-chrome-stable',
+        args: ['--disable-gpu', '--disable-setuid-sandbox', '--no-first-run', '--no-sandbox', '--no-zygote'],
+        executablePath: process.env.LAMBDA_TASK_ROOT + '/headless_shell',
         headless: 'new'
       });
 
