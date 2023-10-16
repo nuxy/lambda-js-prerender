@@ -2,6 +2,8 @@
 
 const puppeteer = require('puppeteer');
 
+const debug = (process.env.PRERENDER_DEBUG === 'true');
+
 /**
  * @openapi
  *
@@ -61,6 +63,8 @@ exports.handler = async (event) => {
     };
 
   } catch (err) {
+
+    debug && console.warn(err.message);
 
     // Return error response.
     return {

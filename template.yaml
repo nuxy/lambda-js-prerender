@@ -21,7 +21,7 @@ Resources:
       AutoPublishAlias: Auto
       Environment:
         Variables:
-          HUMAN_DEBUG: false
+          PRERENDER_DEBUG: false
       Events:
         Detect:
           Type: Api
