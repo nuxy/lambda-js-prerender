@@ -14,6 +14,10 @@ AWS [CloudFront Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.htm
 - [Docker](https://www.docker.com/get-started)
 - [Node.js](https://nodejs.org)
 
+### Get the [Chromium](https://opensource.google/projects/chromium) binary
+
+    $ wget -c https://github.com/nuxy/chromium-lambda-build/raw/master/dist/headless_shell.tar.gz -O - | tar -xz
+
 ## Deploying to AWS
 
     $ ./deploy --profile <AWS credentials profile>
@@ -59,6 +63,7 @@ Run [Mocha](https://mochajs.org) unit tests:
 - [Scaling and concurrency in Lambda](https://docs.aws.amazon.com/lambda/latest/operatorguide/scaling-concurrency.html)
 - [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html)
 - [AWS SDK for JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html)
+- [chromium-lambda-build](https://github.com/nuxy/chromium-lambda-build)
 
 ## Versioning
 
