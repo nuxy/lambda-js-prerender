@@ -1,10 +1,14 @@
+arch: amd64
+os: linux
+dist: focal
 services: xvfb
 jobs:
   include:
     - language: node_js
       node_js:
-        - "16"
+        - "18"
       install:
+        - wget -c https://github.com/nuxy/chromium-lambda-build/releases/download/0.0.1/headless_shell.tar.gz -O - | tar -xz
         - npm install
       script:
         - npm run lint
@@ -12,3 +16,5 @@ jobs:
 branches:
   only:
     - master
+before_install:
+  - sudo apt-get -y install cmake libnss3 wget
