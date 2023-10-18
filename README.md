@@ -16,7 +16,7 @@ AWS [CloudFront Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.htm
 
 ### Get the [Chromium](https://opensource.google/projects/chromium) binary
 
-    $ wget -c https://github.com/nuxy/chromium-lambda-build/raw/master/dist/headless_shell.tar.gz -O - | tar -xz
+    $ wget -c https://github.com/nuxy/chromium-lambda-build/releases/download/0.0.1/headless_shell.tar.gz -O - | tar -xz
 
 ## Deploying to AWS
 

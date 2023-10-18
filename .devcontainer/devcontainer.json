@@ -5,7 +5,7 @@
   "forwardPorts": [3000],
   // Mounting AWS config (Requires container rebuild)
   //"mounts": ["source=${localEnv:HOME}/.aws,target=/root/.aws,type=bind,consistency=cached"],
-  "initializeCommand": "[ -x headless_shell ] || wget -c https://github.com/nuxy/chromium-lambda-build/raw/master/dist/headless_shell.tar.gz -O - | tar -xz",
+  "initializeCommand": "[ -x headless_shell ] || wget -c https://github.com/nuxy/chromium-lambda-build/releases/download/0.0.1/headless_shell.tar.gz -O - | tar -xz",
   "customizations": {
     "vscode": {
       "extensions": [
