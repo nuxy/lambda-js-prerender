@@ -3,6 +3,7 @@ FROM node:16-bullseye
 ENV LAMBDA_TASK_ROOT=/var/task
 ENV LAMBDA_TASK_USER=sbx_user1051
 ENV PUPPETEER_SKIP_DOWNLOAD=true
+ENV XDG_CACHE_HOME=/tmp
 
 RUN apt-get update && apt-get -y install cmake libnss3
 RUN useradd -m -r -U ${LAMBDA_TASK_USER} && mkdir ${LAMBDA_TASK_ROOT}
