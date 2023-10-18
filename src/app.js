@@ -47,6 +47,7 @@ exports.handler = async (event) => {
         args: [
           '--disable-dev-shm-usage',
           '--disable-gpu',
+          '--disable-gpu-compositing',
           '--disable-setuid-sandbox',
           '--disable-software-rasterizer',
           '--data-path=/tmp',
@@ -67,6 +68,8 @@ exports.handler = async (event) => {
       await page.goto(url, {waitUntil: 'networkidle0'});
 
       content = await page.content();
+
+      await browser.close();
     }
 
     // Return success response.
