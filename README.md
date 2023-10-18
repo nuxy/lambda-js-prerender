@@ -29,6 +29,44 @@ The following operations are orchestrated by AWS [CloudFormation](https://docs.a
 - AWS [CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html) distribution is created using the new function as origin.
 - Network routing occurs thereby exposing your Lambda function URL
 
+## Invoking the service
+
+### Command-line
+
+```sh
+curl -X 'POST' \
+  'https://<url-id>.lambda-url.<region>.on.aws/' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "url": "<site-url>"
+}'
+```
+
+### In Node.js
+
+```js
+const AWS = require('aws-sdk');
+
+const lambda = new AWS.Lambda({region: '<region>'});
+
+const params = {
+  FunctionName: 'PrerenderApi',
+  InvocationType: 'RequestResponse',
+  LogType: 'Tail',
+  Payload: JSON.stringify({url: '<site-url>'})
+};
+
+lambda.invoke(params).promise()
+  .then(function({Payload}) {
+    console.log(Payload?.body));
+  })
+  .catch(function(err) {
+    console.warn(err.message);
+    throw err;
+  });
+```
+
 ## AWS requirements
 
 In order to successfully deploy your application you must have [set-up your AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/gs-cli.html) and have [created an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) with the following [policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html):
