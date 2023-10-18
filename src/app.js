@@ -40,10 +40,26 @@ exports.handler = async (event) => {
     let content;
 
     if (url) {
+
+      // Parse the URL (HTML document)
       const browser = await puppeteer.launch({
-        args: ['--disable-gpu', '--disable-setuid-sandbox', '--no-first-run', '--no-sandbox', '--no-zygote'],
         executablePath: process.env.LAMBDA_TASK_ROOT + '/headless_shell',
-        headless: 'new',
+        args: [
+          '--disable-dev-shm-usage',
+          '--disable-gpu',
+          '--disable-setuid-sandbox',
+          '--disable-software-rasterizer',
+          '--data-path=/tmp',
+          '--disk-cache-dir=/tmp',
+          '--disk-cache-size=0',
+          '--headless',
+          '--ignore-certificate-errors',
+          '--no-first-run',
+          '--no-sandbox',
+          '--no-zygote',
+          '--single-process',
+          '--user-data-dir=/tmp'
+        ],
         dumpio: debug
       });
 

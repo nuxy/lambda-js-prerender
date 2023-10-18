@@ -64,6 +64,7 @@ Run [Mocha](https://mochajs.org) unit tests:
 - [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html)
 - [AWS SDK for JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html)
 - [chromium-lambda-build](https://github.com/nuxy/chromium-lambda-build)
+- [content_switches.cc](https://source.chromium.org/chromium/chromium/src/+/main:content/public/common/content_switches.cc?q=kDisableGpu&ss=chromium)
 
 ## Versioning
 
