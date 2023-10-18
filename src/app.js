@@ -43,7 +43,8 @@ exports.handler = async (event) => {
       const browser = await puppeteer.launch({
         args: ['--disable-gpu', '--disable-setuid-sandbox', '--no-first-run', '--no-sandbox', '--no-zygote'],
         executablePath: process.env.LAMBDA_TASK_ROOT + '/headless_shell',
-        headless: 'new'
+        headless: 'new',
+        dumpio: debug
       });
 
       const page = await browser.newPage();
