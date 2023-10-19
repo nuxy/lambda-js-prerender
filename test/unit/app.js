@@ -24,12 +24,15 @@ describe('Event handler', function() {
         .event(eventData)
         .expectResult(result => {
 
-          // Asertions.
+          // Assertions.
           expect(result.headers).to.have.property('Cache-Control');
           expect(result.headers['Cache-Control']).to.equal('max-age=0');
 
           expect(result.headers).to.have.property('Content-Type');
           expect(result.headers['Content-Type']).to.equal('text/html');
+
+          expect(result.headers).to.have.property('X-Runtime');
+          expect(result.headers['X-Runtime']).to.be.an('number');
 
           expect(result.statusCode).to.be.an('number');
           expect(result.statusCode).to.equal(200);
@@ -52,12 +55,15 @@ describe('Event handler', function() {
         .event(eventData)
         .expectResult(result => {
 
-          // Asertions.
+          // Assertions.
           expect(result.headers).to.have.property('Cache-Control');
           expect(result.headers['Cache-Control']).to.equal('max-age=0');
 
           expect(result.headers).to.have.property('Content-Type');
           expect(result.headers['Content-Type']).to.equal('text/plain');
+
+          expect(result.headers).to.have.property('X-Runtime');
+          expect(result.headers['X-Runtime']).to.be.an('number');
 
           expect(result.statusCode).to.be.an('number');
           expect(result.statusCode).to.equal(200);
