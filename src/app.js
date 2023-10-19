@@ -72,7 +72,7 @@ exports.handler = async (event) => {
 
       const page = await browser.newPage();
       await page.goto(url, {
-        waitUntil: 'networkidle0',
+        waitUntil: 'domcontentloaded',
         timeout: process.env.PRERENDER_TIMEOUT * 1000
       });
 
