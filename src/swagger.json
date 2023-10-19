@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "lambda-js-prerender",
-    "version": "0.0.1"
+    "version": "0.1.0"
   },
   "servers": [
     {
@@ -21,6 +21,10 @@
                 "properties": {
                   "url": {
                     "type": "string"
+                  },
+                  "image": {
+                    "type": "boolean",
+                    "default": false
                   }
                 }
               }
@@ -29,9 +33,14 @@
         },
         "responses": {
           "200": {
-            "description": "Returns HTML response.",
+            "description": "Returns HTML/Base64 response.",
             "content": {
               "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/plain": {
                 "schema": {
                   "type": "string"
                 }

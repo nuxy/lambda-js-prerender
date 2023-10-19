@@ -22,6 +22,7 @@ Resources:
       Environment:
         Variables:
           PRERENDER_DEBUG: false
+          PRERENDER_TIMEOUT: 60
       Events:
         Detect:
           Type: Api

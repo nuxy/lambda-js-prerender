@@ -18,11 +18,17 @@ const debug = (process.env.PRERENDER_DEBUG === 'true');
  *             properties:
  *               url:
  *                 type: string
+ *               image:
+ *                 type: boolean
+ *                 default: false
  *     responses:
  *       200:
- *         description: Returns HTML response.
+ *         description: Returns HTML/Base64 response.
  *         content:
  *           text/html:
+ *             schema:
+ *               type: string
+ *           text/plain:
  *             schema:
  *               type: string
  *       500:
@@ -35,9 +41,9 @@ const debug = (process.env.PRERENDER_DEBUG === 'true');
  */
 exports.handler = async (event) => {
   try {
-    const {url} = event.body && JSON.parse(event.body);
+    const {url, image} = event.body && JSON.parse(event.body);
 
-    let content;
+    let content, mimeType;
 
     if (url) {
 
@@ -65,9 +71,19 @@ exports.handler = async (event) => {
       });
 
       const page = await browser.newPage();
-      await page.goto(url, {waitUntil: 'networkidle0', timeout: 0});
+      await page.goto(url, {
+        waitUntil: 'networkidle0',
+        timeout: process.env.PRERENDER_TIMEOUT * 1000
+      });
 
-      content = await page.content();
+      if (image === true) {
+        content  = await page.screenshot({encoding: 'base64'});
+        mimeType = 'text/plain';
+
+      } else {
+        content  = await page.content();
+        mimeType = 'text/html';
+      }
 
       await browser.close();
     }
@@ -76,7 +92,7 @@ exports.handler = async (event) => {
     return {
       headers: {
         'Cache-Control': 'max-age=0',
-        'Content-Type': 'text/html'
+        'Content-Type': mimeType
       },
       statusCode: 200,
       body: content

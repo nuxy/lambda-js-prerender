@@ -6,7 +6,8 @@ AWS [CloudFront Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.htm
 
 ## Features
 
-- Ability to prerender SPA (Single-page application) pages for SEO
+- Ability to prerender SPA (Single-page application) pages for SE0
+- Ability to create screenshots of dynamic pages for testing.
 - Serverless function, scales [on a tight budget](https://s3.amazonaws.com/lambda-tools/pricing-calculator.html).
 - Can be set-up easily (in minutes).
 
@@ -40,7 +41,7 @@ curl -X 'POST' \
   'https://<url-id>.lambda-url.<region>.on.aws' \
   -H 'Accept: text/html' \
   -H 'Content-Type: application/json' \
-  -d '{"url": "<site-url>"}'
+  -d '{"url": "<site-url>", "image": "<boolean>"}'
 ```
 
 ### In Node.js
@@ -54,7 +55,10 @@ const params = {
   FunctionName: 'PrerenderApi',
   InvocationType: 'RequestResponse',
   LogType: 'Tail',
-  Payload: JSON.stringify({url: '<site-url>'})
+  Payload: JSON.stringify({
+    url: '<site-url>',
+    image: <boolean>
+  })
 };
 
 lambda.invoke(params).promise()
