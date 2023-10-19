@@ -6,6 +6,11 @@ module.exports = {
     version: process.env.npm_package_version
   },
   servers: [{
-    url: 'http://localhost:3000'
+    url: '{FunctionUrl}',
+    variables: {
+      FunctionUrl: {
+        default: 'http://localhost:3000'
+      }
+    }
   }]
 };
