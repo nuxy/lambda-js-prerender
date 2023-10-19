@@ -10,7 +10,7 @@ Globals:
       AllowOrigin: "'*'"
   Function:
     MemorySize: 256
-    Timeout: 30
+    Timeout: 60
 
 Resources:
   PrerenderApi:

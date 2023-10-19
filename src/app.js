@@ -65,7 +65,7 @@ exports.handler = async (event) => {
       });
 
       const page = await browser.newPage();
-      await page.goto(url, {waitUntil: 'networkidle0'});
+      await page.goto(url, {waitUntil: 'networkidle0', timeout: 0});
 
       content = await page.content();
 
