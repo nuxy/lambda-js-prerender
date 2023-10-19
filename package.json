@@ -1,6 +1,6 @@
 {
   "name": "lambda-js-prerender",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "AWS CloudFront Lambda serverless JavaScript prerenderer.",
   "main": "src/app.js",
   "dependencies": {
