@@ -41,7 +41,7 @@ curl -X 'POST' \
   'https://<url-id>.lambda-url.<region>.on.aws' \
   -H 'Accept: text/html' \
   -H 'Content-Type: application/json' \
-  -d '{"url": "<site-url>", "image": "<boolean>"}'
+  -d '{"url": "<site-url>", "image": <boolean>}'
 ```
 
 ### In Node.js
