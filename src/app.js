@@ -24,6 +24,17 @@ const debug = (process.env.PRERENDER_DEBUG === 'true');
  *     responses:
  *       200:
  *         description: Returns HTML/Base64 response.
+ *         headers:
+ *           Cache-Control:
+ *             schema:
+ *               type: string
+ *               example: max-age=0
+ *           Content-Type:
+ *             schema:
+ *               type: string
+ *               enum:
+ *                 - text/html
+ *                 - text/plain
  *         content:
  *           text/html:
  *             schema:
