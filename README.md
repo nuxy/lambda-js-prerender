@@ -35,12 +35,10 @@ The following operations are orchestrated by AWS [CloudFormation](https://docs.a
 
 ```sh
 curl -X 'POST' \
-  'https://<url-id>.lambda-url.<region>.on.aws/' \
-  -H 'accept: application/json' \
+  'https://<url-id>.lambda-url.<region>.on.aws' \
+  -H 'Accept: text/html' \
   -H 'Content-Type: application/json' \
-  -d '{
-  "url": "<site-url>"
-}'
+  -d '{"url": "<site-url>"}'
 ```
 
 ### In Node.js
