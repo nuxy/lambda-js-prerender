@@ -13,3 +13,13 @@ Initial release (HTML only)
 ### Added
 
 - Support for page screenshot (Base64 PNG)
+
+## [0.1.2] - 2023-10-19
+
+### Added
+
+- HTTP header `X-Runtime` in milliseconds
+
+### Updated
+
+- Invocation performance optimizations
