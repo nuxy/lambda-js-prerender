@@ -23,3 +23,10 @@ Initial release (HTML only)
 ### Updated
 
 - Invocation performance optimizations
+
+## [0.1.3] - 2023-11-11
+
+### Updated
+
+- Node.js engine to AWS supported release
+- NPM package dependencies
