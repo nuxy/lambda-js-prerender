@@ -46,10 +46,12 @@ curl -X 'POST' \
 
 ### In Node.js
 
-```js
-const AWS = require('aws-sdk');
+#### AWS SDK for JavaScript v3
 
-const lambda = new AWS.Lambda({region: '<region>'});
+```javascript
+const {LambdaClient, InvokeCommand} = require('@aws-sdk/client-lambda');
+
+const client = new LambdaClient({region: '<region>'});
 
 const params = {
   FunctionName: 'PrerenderApi',
@@ -61,7 +63,37 @@ const params = {
   })
 };
 
-lambda.invoke(params).promise()
+const command = new InvokeCommand(params);
+
+try {
+  const {PayLoad} = await client.send(command);
+
+  console.log(Payload?.body));
+
+} catch (err) {
+  console.warn(err.message);
+  throw err;
+}
+```
+
+#### AWS SDK for JavaScript v2
+
+```javascript
+const AWS = require('aws-sdk');
+
+const client = new AWS.Lambda({region: '<region>'});
+
+const params = {
+  FunctionName: 'PrerenderApi',
+  InvocationType: 'RequestResponse',
+  LogType: 'Tail',
+  Payload: JSON.stringify({
+    url: '<site-url>',
+    image: <boolean>
+  })
+};
+
+client.invoke(params).promise()
   .then(function({Payload}) {
     console.log(Payload?.body));
   })
@@ -70,6 +102,15 @@ lambda.invoke(params).promise()
     throw err;
   });
 ```
+
+## Environment variables
+
+The following function environment overrides can be configured in the SAM [template](https://github.com/nuxy/human-face-detection/blob/master/template.yaml#L23) file:
+
+| Variable name      | Description          | Default value |
+|--------------------|----------------------|---------------|
+| `PRERENDER_DEBUG`  | Enable verbose logging to [CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) group | false |
+|`PRERENDER_TIMEOUT` | Execution timeout in seconds | 60 |
 
 ## AWS requirements
 
