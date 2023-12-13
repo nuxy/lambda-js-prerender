@@ -1,4 +1,4 @@
 .aws-sam
-headless_shell
+headless_shell*
 node_modules
 package-lock.json
