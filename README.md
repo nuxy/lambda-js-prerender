@@ -6,8 +6,8 @@ AWS [CloudFront Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.htm
 
 ## Features
 
-- Ability to prerender SPA (Single-page application) pages for SE0
-- Ability to create screenshots of dynamic pages for testing.
+- Ability to prerender SPA (Single-page application) pages for SEO indexing.
+- Ability to create screenshots of dynamically generated pages for testing.
 - Serverless function, scales [on a tight budget](https://s3.amazonaws.com/lambda-tools/pricing-calculator.html).
 - Can be set-up easily (in minutes).
 
@@ -19,7 +19,7 @@ AWS [CloudFront Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.htm
 
 ### Get the [Chromium](https://opensource.google/projects/chromium) binary
 
-    $ wget -c https://github.com/nuxy/chromium-lambda-build/releases/download/0.0.1/headless_shell.tar.gz -O - | tar -xz
+    $ wget -c https://github.com/nuxy/chromium-lambda-build/releases/download/0.0.2/headless_shell.tar.gz -O - | tar -xz
 
 ## Deploying to AWS
 
