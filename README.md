@@ -1,6 +1,6 @@
 # lambda-js-prerender
 
-![git Version](https://img.shields.io/github/package-json/v/nuxy/lambda-js-prerender?style=flat-square&svg=true&label=git+package) [![Build Status](https://api.travis-ci.com/nuxy/lambda-js-prerender.svg?branch=master)](https://app.travis-ci.com/github/nuxy/lambda-js-prerender)
+![git Version](https://img.shields.io/github/package-json/v/nuxy/lambda-js-prerender?style=flat-square&svg=true&label=git+package) [![Build Status](https://img.shields.io/github/actions/workflow/status/nuxy/lambda-js-prerender/.github%2Fworkflows%2Fci.yml)](https://github.com/nuxy/lambda-js-prerender/actions)
 
 AWS [CloudFront Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) serverless JavaScript [prerenderer](https://github.com/prerender/prerender).
 
