@@ -77,7 +77,7 @@ exports.handler = async (event) => {
             '--data-path=/tmp',
             '--disk-cache-dir=/tmp',
             '--disk-cache-size=0',
-            '--headless',
+            '--headless="new"',
             '--ignore-certificate-errors',
             '--no-first-run',
             '--no-sandbox',
