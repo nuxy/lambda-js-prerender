@@ -30,3 +30,14 @@ Initial release (HTML only)
 
 - Node.js engine to AWS supported release
 - NPM package dependencies
+
+## [0.2.0] - 2024-03-22
+
+### Added
+
+- Support Puppet Chrome `new` Headless mode
+
+### Updated
+
+- Chromium binary version (0.0.2)
+- NPM package dependencies
